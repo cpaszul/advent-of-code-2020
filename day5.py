@@ -12,25 +12,11 @@ def day_5(loc: str = DEFAULT_INPUT) -> int:
             return part_1, n
     
 def get_seat_id(seat: str) -> int:
-    return get_row(seat[:-3]) * 8 + get_col(seat[-3:])
+    return to_bin(seat[:-3]) * 8 + to_bin(seat[-3:])
 
-def get_row(chrs: str) -> int:
-    lower, upper = 0, 127
-    for c in chrs[:-1]:
-        if c == 'F':
-            upper = math.floor((lower + upper)/2)
-        else:
-            lower = math.ceil((lower + upper)/2)
-    return lower if chrs[-1] == 'F' else upper
-
-def get_col(chrs: str) -> int:
-    lower, upper = 0, 7
-    for c in chrs[:-1]:
-        if c == 'L':
-            upper = math.floor((lower + upper)/2)
-        else:
-            lower = math.ceil((lower + upper)/2)
-    return lower if chrs[-1] == 'L' else upper
+def to_bin(chars: str) -> int:
+    return int(''.join('1' if c in 'BR' else '0'
+                       for c in chars), 2)
                     
 
 if __name__ == '__main__':
