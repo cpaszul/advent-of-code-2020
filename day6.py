@@ -6,7 +6,7 @@ def day_6(loc: str = DEFAULT_INPUT) -> int:
     part_1 = 0
     part_2 = 0
     with open(loc) as f:
-        groups = ''.join(line for line in f.readlines()).split('\n\n')
+        groups = ''.join(f.readlines()).split('\n\n')
     for group in groups:
         group = group.rstrip()
         union = set()
