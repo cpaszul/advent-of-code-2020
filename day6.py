@@ -1,31 +1,21 @@
+from string import ascii_lowercase
+
 DEFAULT_INPUT = 'day6.txt'
 
 def day_6(loc: str = DEFAULT_INPUT) -> int:
     part_1 = 0
     part_2 = 0
     with open(loc) as f:
-        answers = ''
-        group_size = 0
-        for line in f.readlines():
-            if line == '\n':
-                common_answers = set()
-                for char in answers:
-                    if answers.count(char) == group_size:
-                        common_answers.add(char)
-                part_1 += len(set(answers))
-                part_2 += len(set(common_answers))
-                answers = ''
-                group_size = 0
-            else:
-                answers += line.rstrip()
-                group_size += 1
-        if answers:
-            common_answers = set()
-            for char in answers:
-                if answers.count(char) == group_size:
-                    common_answers.add(char)
-            part_1 += len(set(answers))
-            part_2 += len(set(common_answers))
+        groups = ''.join(line for line in f.readlines()).split('\n\n')
+    for group in groups:
+        group = group.rstrip()
+        union = set()
+        intersect = set(ascii_lowercase)
+        for answers in group.split('\n'):
+            union |= set(answers)
+            intersect &= set(answers)
+        part_1 += len(union)
+        part_2 += len(intersect)
     return part_1, part_2
                     
 
