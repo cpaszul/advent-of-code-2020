@@ -1,4 +1,5 @@
 from itertools import combinations
+from collections import deque
 
 DEFAULT_INPUT = 'day9.txt'
 
@@ -10,20 +11,19 @@ def day_9(loc: str = DEFAULT_INPUT) -> int:
     while target is None:
         current_num = ints[current]
         nums = ints[current - 25:current]
-        if any(a + b == current_num for a, b in combinations(ints, 2)):
+        if any(a + b == current_num for a, b in combinations(nums, 2)):
             current += 1
             continue
         target = current_num
     i = 0
-    while True:
-        nums = []
-        j = i
-        while sum(nums) < target:
-            nums.append(ints[j])
-            j += 1
-        if sum(nums) == target:
-            return target, min(nums) + max(nums)
-        i += 1
+    nums = deque()
+    while (s := sum(nums)) != target:
+        if s > target:
+            nums.popleft()
+        else:
+            nums.append(ints[i])
+            i += 1
+    return target, min(nums) + max(nums)
 
     
 if __name__ == '__main__':
