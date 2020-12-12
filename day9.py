@@ -3,7 +3,7 @@ from collections import deque
 
 DEFAULT_INPUT = 'day9.txt'
 
-def day_9(loc: str = DEFAULT_INPUT) -> int:
+def day_9(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     with open(loc) as f:
         ints = [int(line) for line in f.readlines()]
     current = 25

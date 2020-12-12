@@ -7,7 +7,7 @@ DEFAULT_INPUT = 'day7.txt'
 #global to allow caching contains_target
 RULES = defaultdict(list)
 
-def day_7(loc: str = DEFAULT_INPUT) -> int:
+def day_7(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     global RULES
     colors = set()
     pattern = re.compile(r'(\d+) (\w+ \w+)')

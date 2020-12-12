@@ -2,7 +2,7 @@ import re
 
 DEFAULT_INPUT = 'day4.txt'
 
-def day_4(loc: str = DEFAULT_INPUT) -> int:
+def day_4(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     passports = []
     with open(loc) as f:
         passports_raw = ''.join(f.readlines()).split('\n\n')

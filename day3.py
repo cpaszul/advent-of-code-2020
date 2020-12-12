@@ -1,10 +1,9 @@
-from typing import Dict, Tuple
 from functools import reduce
 
 DEFAULT_INPUT = 'day3.txt'
 
 def tree_count(dx: int, dy: int, height: int, width: int,
-               grid: Dict[Tuple[int, int], str]) -> int:
+               grid: dict[tuple[int, int], str]) -> int:
     x, y = 0, 0
     trees = 0
     while y < height:
@@ -15,7 +14,7 @@ def tree_count(dx: int, dy: int, height: int, width: int,
         x %= width
     return trees
 
-def day_3(loc: str = DEFAULT_INPUT) -> int:
+def day_3(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     grid = {}
     height = 0
     with open(loc) as f:

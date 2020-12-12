@@ -2,7 +2,7 @@ import re
 
 DEFAULT_INPUT = 'day2.txt'
 
-def day_2(loc: str = DEFAULT_INPUT) -> int:
+def day_2(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     pattern = re.compile(r'(\d+)-(\d+) (\w): (\w+)')
     def xor(a, b):
         return (a and not b) or (not a and b)

@@ -2,7 +2,7 @@ import math
 
 DEFAULT_INPUT = 'day5.txt'
 
-def day_5(loc: str = DEFAULT_INPUT) -> int:
+def day_5(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     with open(loc) as f:
         seat_ids = [get_seat_id(line.rstrip()) for line in f.readlines()]
     seat_ids.sort()

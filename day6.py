@@ -2,7 +2,7 @@ from string import ascii_lowercase
 
 DEFAULT_INPUT = 'day6.txt'
 
-def day_6(loc: str = DEFAULT_INPUT) -> int:
+def day_6(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     part_1 = 0
     part_2 = 0
     with open(loc) as f:
