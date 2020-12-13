@@ -26,7 +26,7 @@ def part_2(loc: str = DEFAULT_INPUT) -> int:
     a = [-1 * order for bus_id, order in bus_ids]
     return crt(n, a)
 
-def crt(n, a):
+def crt(n: list[int], a: list[int]) -> int:
     total = 0
     product = reduce(lambda x, y: x * y, n)
     for n_i, a_i in zip(n, a):
@@ -34,7 +34,7 @@ def crt(n, a):
         total += a_i * mul_inv(p, n_i) * p
     return total % product
  
-def mul_inv(x, y):
+def mul_inv(x: int, y: int) -> int:
     y_0 = y
     n_0, n_1 = 0, 1
     if y == 1:
