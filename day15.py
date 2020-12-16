@@ -15,12 +15,15 @@ def day_15(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
             if len(spoken[last_number]) == 1:
                 spoken_number = 0
             else:
-                spoken_number = spoken[last_number][-1] - spoken[last_number][-2]
+                spoken_number = spoken[last_number][1] - spoken[last_number][0]
         if turn == 2020:
             p1_res = spoken_number
         if turn == 30000000:
             return p1_res, spoken_number
-        spoken[spoken_number].append(turn)
+        if len(spoken[spoken_number]) == 2:
+            spoken[spoken_number] = [spoken[spoken_number][1], turn]
+        else:
+            spoken[spoken_number].append(turn)
         last_number = spoken_number
         turn += 1
 
