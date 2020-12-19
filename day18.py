@@ -2,7 +2,7 @@ from functools import reduce
 
 DEFAULT_INPUT = 'day18.txt'
 
-def day_18(loc: str = DEFAULT_INPUT) -> int:
+def day_18(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
     with open(loc) as f:
         lines = [line.rstrip() for line in f.readlines()]
     return sum(simplify_p1(line) for line in lines), \
