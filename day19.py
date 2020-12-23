@@ -18,7 +18,6 @@ def day_19(loc: str = DEFAULT_INPUT) -> tuple[int, int]:
                 RULES[int(rule_num)] = rule
             else:
                 messages.append(line.rstrip())
-    max_length = len(max(messages, key = len))
     part_1_res = 0
     part_2_res = 0
     for message in messages:
@@ -55,7 +54,7 @@ def match_rule(input_string: str, rule: str) -> bool:
             if match_num(substring_a, rule_nums[0]) and match_num(substring_b, rule_nums[1]):
                 return True
         return False   
-    else: #len(rule_numss) == 3, no cases of 4 or more
+    else: #len(rule_nums) == 3, no cases of 4 or more
         for i in range(1, len(input_string)):
             substring_a, rest = input_string[:i], input_string[i:]
             for j in range(1, len(rest)):
